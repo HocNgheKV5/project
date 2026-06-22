@@ -110,56 +110,65 @@ function closeToast() {
     document.getElementById('toast-box').classList.remove('active');
 }
 
-document.getElementById('toast-overlay').addEventListener('click', closeToast);
+document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('toast-overlay');
+    if (overlay) overlay.addEventListener('click', closeToast);
 
+    // ===== Form submission → Excel export =====
+    const form = document.querySelector('form');
+    if (!form) return;
 
-// ===== Form submission → Excel export =====
-document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('res-name').value.trim();
-    const phone = document.getElementById('res-phone').value.trim();
-    const guests = document.getElementById('res-guests').value;
-    const datetime = document.getElementById('res-datetime').value;
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('res-name').value.trim();
+        const phone = document.getElementById('res-phone').value.trim();
+        const guests = document.getElementById('res-guests').value;
+        const datetime = document.getElementById('res-datetime').value;
 
-    if (!name || !phone || !datetime) {
-        showToast('Thiếu thông tin', 'Vui lòng điền đầy đủ thông tin đặt bàn.');
-        return;
-    }
+        if (!name || !phone || !datetime) {
+            showToast('Thiếu thông tin', 'Vui lòng điền đầy đủ thông tin đặt bàn.');
+            return;
+        }
 
-    const btn = this.querySelector('button[type="submit"]');
-    const originalText = btn.innerText;
-    btn.innerText = 'Đang xử lý...';
-    btn.disabled = true;
+        const btn = this.querySelector('button[type="submit"]');
+        const originalText = btn.innerText;
+        btn.innerText = 'Đang xử lý...';
+        btn.disabled = true;
 
-    setTimeout(() => {
-        const now = new Date();
-        const timestamp = now.toLocaleString('vi-VN');
-        const formattedDT = datetime.replace('T', ' ');
-
-        const data = [
-            ['Họ và tên', 'Số điện thoại', 'Số khách', 'Ngày & Giờ', 'Thời gian đặt'],
-            [name, phone, guests, formattedDT, timestamp]
-        ];
-
-        const ws = XLSX.utils.aoa_to_sheet(data);
-        ws['!cols'] = [
-            { wch: 20 }, { wch: 15 }, { wch: 12 }, { wch: 20 }, { wch: 22 }
-        ];
-
-        const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Đặt bàn');
-        XLSX.writeFile(wb, `DatBan_${name}_${now.getTime()}.xlsx`);
-
-        btn.innerText = 'Đặt bàn thành công!';
-        btn.style.backgroundColor = '#52652a';
         setTimeout(() => {
-            btn.innerText = originalText;
-            btn.style.backgroundColor = '';
-            btn.disabled = false;
-            this.reset();
-        }, 3000);
-    }, 800);
-});
+            const now = new Date();
+            const timestamp = now.toLocaleString('vi-VN');
+            const formattedDT = datetime.replace('T', ' ');
+
+            try {
+                const data = [
+                    ['Họ và tên', 'Số điện thoại', 'Số khách', 'Ngày & Giờ', 'Thời gian đặt'],
+                    [name, phone, guests, formattedDT, timestamp]
+                ];
+
+                const ws = XLSX.utils.aoa_to_sheet(data);
+                ws['!cols'] = [
+                    { wch: 20 }, { wch: 15 }, { wch: 12 }, { wch: 20 }, { wch: 22 }
+                ];
+
+                const wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, 'Đặt bàn');
+                XLSX.writeFile(wb, `DatBan_${name}_${now.getTime()}.xlsx`);
+            } catch (err) {
+                console.error('XLSX export failed:', err);
+            }
+
+            btn.innerText = 'Đặt bàn thành công!';
+            btn.style.backgroundColor = '#52652a';
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.backgroundColor = '';
+                btn.disabled = false;
+                this.reset();
+            }, 3000);
+        }, 800);
+    });
+ });
 // ===== Dynamic Menu from menu.json =====
 let menuData = null;
 let activeCategory = 'Tất cả';
