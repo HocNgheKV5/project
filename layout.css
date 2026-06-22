@@ -1,0 +1,56 @@
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.bamboo-grain {
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
+.matte-overlay {
+    backdrop-filter: contrast(0.9) brightness(1.1) saturate(0.8);
+}
+
+.hero-gradient {
+    background: linear-gradient(to right, rgba(253, 249, 244, 0.9) 30%, rgba(253, 249, 244, 0) 100%);
+}
+.nav-underline {
+    width: 0;
+    transition: width 0.3s ease;
+}
+.nav-link {
+    color: var(--color-on-surface-variant, #58423c);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-primary, #9c2f14);
+}
+
+.nav-link:hover .nav-underline {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--color-primary, #9c2f14);
+}
+
+.nav-link.active .nav-underline {
+    width: 100%;
+}
+
+#navbar {
+    transition: padding 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#menu-toggle span {
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+}
+
+#mobile-menu {
+    animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

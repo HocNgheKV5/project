@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Ẩm thực quê em - Hương vị truyền thống từ tâm</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="layout.css" rel="stylesheet">
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden bamboo-grain">
+    <!-- TopNavBar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 bg-surface-container-low/95 backdrop-blur-sm transition-all duration-300 shadow-sm">
+        <div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="flex items-center gap-3">
+                <img alt="Logo Ẩm thực quê em" class="h-12 w-12 rounded-full object-cover shadow-sm" src="images/logo.png">
+                <span class="font-headline-lg text-headline-lg text-primary">Ẩm thực quê em</span>
+            </div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="nav-link font-body-lg text-body-lg relative group" href="#">Trang chủ
+                    <span class="nav-underline absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300"></span>
+                </a>
+                <a class="nav-link font-body-lg text-body-lg relative group" href="#menu">Thực đơn
+                    <span class="nav-underline absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300"></span>
+                </a>
+                <a class="nav-link font-body-lg text-body-lg relative group" href="#booking">Đặt bàn
+                    <span class="nav-underline absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300"></span>
+                </a>
+                <a class="nav-link font-body-lg text-body-lg relative group" href="#contact">Liên hệ
+                    <span class="nav-underline absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300"></span>
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a class="hidden md:inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-sm font-label-md hover:bg-primary-container hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_2px_0_0_#872106] hover:shadow-[0_4px_0_0_#872106] hover:-translate-y-0.5" href="#booking">
+                    Đặt bàn ngay
+                </a>
+                <!-- Mobile hamburger -->
+                <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2 group" aria-label="Menu">
+                    <span class="block w-6 h-0.5 bg-on-surface transition-all duration-300 origin-center group-hover:bg-primary"></span>
+                    <span class="block w-6 h-0.5 bg-on-surface transition-all duration-300 group-hover:bg-primary"></span>
+                    <span class="block w-4 h-0.5 bg-on-surface transition-all duration-300 origin-center group-hover:bg-primary group-hover:w-6"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface-container-low border-t border-outline-variant">
+            <div class="flex flex-col items-center gap-4 py-6 px-margin-desktop">
+                <a class="text-primary font-body-lg text-body-lg py-2 border-b-2 border-primary" href="#">Trang chủ</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-lg text-body-lg py-2" href="#menu">Thực đơn</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-lg text-body-lg py-2" href="#booking">Đặt bàn</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-lg text-body-lg py-2" href="#contact">Liên hệ</a>
+                <a class="mt-2 bg-primary text-on-primary px-8 py-3 rounded-sm font-label-md hover:bg-primary-container active:scale-95 transition-all duration-200 shadow-[0_2px_0_0_#872106]" href="#booking">
+                    Đặt bàn ngay
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center pt-20">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 hero-gradient z-10"></div>
+                <div class="w-full h-full" style="background-image: url('images/hero.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center;"></div>
+            </div>
+            <div class="relative z-20 px-margin-desktop max-w-container-max mx-auto w-full">
+                <div class="max-w-2xl">
+                    <h1 class="font-headline-xl text-headline-xl text-primary mb-6 leading-tight">
+                        Ẩm thực quê em - Hương vị truyền thống từ tâm
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        Khám phá hành trình ẩm thực đậm chất Nam Bộ với những nguyên liệu tươi ngon nhất từ cánh đồng và dòng sông, được chế biến bằng cả tấm lòng của người nghệ nhân.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="inline-block bg-primary text-on-primary px-8 py-4 rounded-sm font-label-md text-lg shadow-[0_3px_0_0_#872106] hover:translate-y-[1px] hover:shadow-[0_2px_0_0_#872106] transition-all" href="#booking">
+                            Đặt bàn ngay
+                        </a>
+                        <a class="inline-block border border-secondary text-secondary px-8 py-4 rounded-sm font-label-md text-lg hover:bg-secondary-container transition-colors" href="#menu">
+                            Xem thực đơn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="py-24 px-margin-desktop max-w-container-max mx-auto" id="menu">
+            <div class="text-center mb-16">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Món Ngon Đặc Sắc</h2>
+                <div class="w-24 h-1 bg-tertiary mx-auto opacity-30 rounded-full mb-6"></div>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Những tinh hoa ẩm thực miền sông nước được chúng tôi chọn lọc và gìn giữ nguyên vẹn bản sắc.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                <!-- Dish 1 -->
+                <div class="bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('images/bun-mam.jpg');"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">Bún Mắm Miền Tây</h3>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant mb-4 h-12 overflow-hidden">Hương vị mắm cá linh, cá sặc đậm đà quyện cùng hải sản tươi rói.</p>
+                        <span class="font-headline-md text-primary">85.000đ</span>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('images/lau-mam.jpg');"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">Lẩu Mắm cá linh</h3>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant mb-4 h-12 overflow-hidden">Món lẩu đặc trưng mùa nước nổi với đủ loại rau đồng nội.</p>
+                        <span class="font-headline-md text-primary">250.000đ</span>
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('images/ca-loc-nuong.jpg');"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">Cá Lóc Nướng Trui</h3>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant mb-4 h-12 overflow-hidden">Cá lóc nướng rơm thơm lừng, cuốn bánh tráng cùng mắm me.</p>
+                        <span class="font-headline-md text-primary">165.000đ</span>
+                    </div>
+                </div>
+
+                <!-- Dish 4 -->
+                <div class="bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('images/goi-ngo-sen.jpg');"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">Gỏi Ngó Sen</h3>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant mb-4 h-12 overflow-hidden">Gỏi sen giòn ngọt, tôm thịt đậm đà, khai vị thanh mát.</p>
+                        <span class="font-headline-md text-primary">110.000đ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation Section -->
+        <section class="py-24 bg-surface-container-high relative overflow-hidden" id="booking">
+            <div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
+                <span class="material-symbols-outlined text-[300px] rotate-12">restaurant_menu</span>
+            </div>
+            <div class="px-margin-desktop max-w-container-max mx-auto relative z-10">
+                <div class="bg-background border border-outline-variant p-8 md:p-16 rounded-sm shadow-xl max-w-4xl mx-auto flex flex-col md:flex-row gap-12">
+                    <div class="md:w-1/3">
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Đặt bàn trước</h2>
+                        <p class="font-body-md text-on-surface-variant mb-8">
+                            Để phục vụ quý khách chu đáo nhất, xin vui lòng để lại thông tin đặt bàn. Chúng tôi sẽ liên hệ xác nhận trong 5 phút.
+                        </p>
+                        <div class="space-y-4 text-on-surface-variant font-label-md">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-secondary">phone_in_talk</span>
+                                <span class="">0292.388.xxxx</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-secondary">schedule</span>
+                                <span class="">08:00 - 22:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="font-label-md text-on-surface-variant">Họ và tên</label>
+                                <input class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" placeholder="Nhập tên của bạn" type="text">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-label-md text-on-surface-variant">Số điện thoại</label>
+                                <input class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" placeholder="Nhập số điện thoại" type="tel">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-label-md text-on-surface-variant">Số khách</label>
+                                <select class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors">
+                                    <option>2 người</option>
+                                    <option>4 người</option>
+                                    <option>6 người</option>
+                                    <option>Trên 10 người</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-label-md text-on-surface-variant">Ngày &amp; Giờ</label>
+                                <input class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" type="datetime-local">
+                            </div>
+                            <div class="md:col-span-2 pt-6">
+                                <button class="w-full bg-primary text-on-primary py-4 rounded-sm font-label-md text-lg shadow-[0_3px_0_0_#872106] active:translate-y-[2px] transition-all" type="submit">
+                                    Xác nhận đặt bàn
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-24 px-margin-desktop max-w-container-max mx-auto" id="contact">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Liên hệ với chúng tôi</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6 items-start">
+                            <div class="bg-secondary-container p-3 rounded-sm text-on-secondary-container">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md text-on-surface mb-1">Địa chỉ</h4>
+                                <p class="font-body-md text-on-surface-variant">123 Đường Ven Sông, Phường Cái Khế, Quận Ninh Kiều, TP. Cần Thơ</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start">
+                            <div class="bg-secondary-container p-3 rounded-sm text-on-secondary-container">
+                                <span class="material-symbols-outlined">call</span>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md text-on-surface mb-1">Điện thoại</h4>
+                                <p class="font-body-md text-on-surface-variant">0292.388.xxxx - 090x.xxx.xxx</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start">
+                            <div class="bg-secondary-container p-3 rounded-sm text-on-secondary-container">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md text-on-surface mb-1">Email</h4>
+                                <p class="font-body-md text-on-surface-variant">lienhe@amthucqueem.vn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-96 bg-surface-container-low border border-outline-variant rounded-sm overflow-hidden shadow-inner">
+                    <div class="w-full h-full grayscale hover:grayscale-0 transition-all duration-700" style="background-image: url('images/map.jpg');"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-highest border-t border-outline-variant w-full mt-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto items-start">
+            <div class="space-y-4">
+                <span class="font-headline-md text-headline-md text-primary">Ẩm thực quê em</span>
+                <p class="font-caption text-caption text-on-surface-variant max-w-xs">
+                    Gìn giữ và phát huy những giá trị văn hóa ẩm thực truyền thống Việt Nam thông qua những món ăn dân dã, đậm đà tình quê.
+                </p>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="font-label-md text-primary">Thông tin</h4>
+                <a class="font-caption text-caption text-on-surface-variant hover:underline decoration-primary transition-opacity" href="#">Chính sách bảo mật</a>
+                <a class="font-caption text-caption text-on-surface-variant hover:underline decoration-primary transition-opacity" href="#">Điều khoản sử dụng</a>
+                <a class="font-caption text-caption text-on-surface-variant hover:underline decoration-primary transition-opacity" href="#">Tuyển dụng</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="font-label-md text-primary">Theo dõi</h4>
+                <div class="flex gap-4">
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"></path></svg>
+                    </a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.235-1.735a1.145 1.145 0 100 2.29 1.145 1.145 0 000-2.29z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="px-margin-desktop py-6 border-t border-outline-variant text-center max-w-container-max mx-auto">
+            <p class="font-caption text-caption text-on-surface-variant">© 2024 Ẩm thực quê em. Gìn giữ hương vị truyền thống Việt.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
