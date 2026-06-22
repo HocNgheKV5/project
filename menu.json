@@ -1,0 +1,89 @@
+{
+    "categories": ["Tất cả", "Lẩu", "Cơm nhà", "Bánh", "Gỏi", "Canh"],
+    "menu": [
+        {
+            "name": "Lẩu Mắm",
+            "category": "Lẩu",
+            "description": "Lẩu mắm là một món ăn đặc trưng của miền Tây Nam Bộ, nổi tiếng với hương vị đậm đà và thơm ngon. Được chế biến từ nước dùng nấu từ mắm cá linh hoặc mắm cá sặc, kết hợp rau củ tươi ngon như bông điên điển, rau muống, rau nhút, và hải sản như tôm, cá, mực. Ăn kèm bún hoặc cơm trắng.",
+            "price": "200.000đ",
+            "image": "images/monan/lau-mam.jpg"
+        },
+        {
+            "name": "Bún Mắm Miền Tây",
+            "category": "Cơm nhà",
+            "description": "Hương vị mắm cá linh, cá sặc đậm đà quyện cùng hải sản tươi rói. Bún mắm miền Tây là tinh hoa ẩm thực sông nước, mỗi tô là một chuyến du hành hương vị.",
+            "price": "85.000đ",
+            "image": "images/monan/bun-mam.jpg"
+        },
+        {
+            "name": "Cá Lóc Nướng Trui",
+            "category": "Cơm nhà",
+            "description": "Cá lóc nướng rơm thơm lừng, cuốn bánh tráng cùng mắm me. Gia vị thấm đều, thịt cá ngọt tự nhiên, thơm khói rơm đặc trưng.",
+            "price": "165.000đ",
+            "image": "images/monan/ca-loc-nuong.jpg"
+        },
+        {
+            "name": "Gỏi Ngó Sen",
+            "category": "Gỏi",
+            "description": "Gỏi sen giòn ngọt, tôm thịt đậm đà, khai vị thanh mát. Ngó sen tươi giòn kết hợp nước mắm chua ngọt đặc trưng.",
+            "price": "110.000đ",
+            "image": "images/monan/goi-ngo-sen.jpg"
+        }, 
+        {
+            "name": "Bánh Xèo Miền Tây",
+            "category": "Bánh",
+            "description": "Bánh xèo vàng giòn, nhân tôm thịt đậm đà, cuốn rau sống chấm nước mắm chua ngọt. Hương vị miền Tây đặc trưng.",
+            "price": "95.000đ",
+            "image": "images/monan/banh-xeo.jpg"
+        },
+        {
+            "name": "Bánh khọt",
+            "category": "Bánh",
+            "description": "Bánh khọt giòn rụm, nhân tôm thịt đậm đà, ăn kèm rau sống và nước mắm chua ngọt.",
+            "price": "90.000đ",
+            "image": "images/monan/banh-khot.jpg"
+        },
+        {
+            "name": "Bánh Canh Cua",
+            "category": "Bánh",
+            "description": "Bánh canh cua thơm ngon, nước dùng đậm đà, kết hợp cua tươi ngon và rau củ tươi. Món ăn đặc trưng của ẩm thực miền Nam.",
+            "price": "120.000đ",
+            "image": "images/monan/banh-canh.jpg"
+        },
+        {
+            "name": "Cá Kho Tộ",
+            "category": "Cơm nhà",
+            "description": "Cá kho tộ đậm đà, thịt cá mềm thơm, nước kho sánh mịn. Món ăn truyền thống của miền Tây, thường được ăn kèm với cơm trắng và rau sống.",
+            "price": "150.000đ",
+            "image": "images/monan/ca-kho-to.jpg"
+        },
+        {
+            "name": "Canh Chua Cá Lóc",
+            "category": "Canh",
+            "description": "Canh chua cá lóc thanh mát, nước dùng chua ngọt hài hòa, kết hợp với rau thơm và cà chua tươi ngon. Món ăn đặc trưng của miền Nam, thường được ăn kèm với cơm trắng.",
+            "price": "110.000đ",
+            "image": "images/monan/canh-chua-ca-loc.jpg"
+        },
+        {
+            "name": "Canh Khoai Ngọt",
+            "category": "Canh",
+            "description": "Canh khoai ngọt thơm ngon, nước dùng ngọt thanh, kết hợp với khoai ngọt mềm và rau thơm. Món canh đơn giản nhưng đậm đà hương vị, thường được ăn kèm với cơm trắng.",
+            "price": "100.000đ",
+            "image": "images/monan/canh-khoai-ngot.jpg"
+        }, 
+        {
+            "name": "Canh Chua Bông Điên Điển",
+            "category": "Canh",
+            "description": "Món canh đặc trưng miền Tây với bông điên điển tươi vàng, kết hợp cùng cá và nước dùng chua thanh từ me. Hương vị hài hòa giữa vị chua nhẹ, ngọt tự nhiên và mùi thơm dân dã, mang đậm nét ẩm thực sông nước Nam Bộ.",
+            "price": "100.000đ",
+            "image": "images/monan/canh-chua-bong-dien-dien.jpg"
+        },
+        {
+            "name": "Bánh Bò",
+            "category": "Bánh",
+            "description": "Bánh bò truyền thống với kết cấu mềm xốp đặc trưng, vị ngọt thanh dịu nhẹ và hương thơm béo ngậy từ nước cốt dừa. Món bánh dân dã quen thuộc, mang đậm hương vị tuổi thơ và nét đẹp ẩm thực Việt Nam.",
+            "price": "50.000đ",
+            "image": "images/monan/banh-bo.jpg"
+        }
+    ]
+}

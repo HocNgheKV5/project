@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="tailwind-config.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="layout.css" rel="stylesheet">
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden bamboo-grain">
@@ -89,68 +89,19 @@
         <!-- Menu Section -->
         <section class="py-24 px-margin-desktop max-w-container-max mx-auto" id="menu">
             <div class="text-center mb-16">
-                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Món Ngon Đặc Sắc</h2>
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Thực đơn nhà hàng</h2>
                 <div class="w-24 h-1 bg-tertiary mx-auto opacity-30 rounded-full mb-6"></div>
                 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
                     Những tinh hoa ẩm thực miền sông nước được chúng tôi chọn lọc và gìn giữ nguyên vẹn bản sắc.
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-                <!-- Dish 1 -->
-                <div class="bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="h-64 overflow-hidden">
-                        <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('images/bun-mam.jpg');"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-headline-md text-headline-md text-on-surface">Bún Mắm Miền Tây</h3>
-                        </div>
-                        <p class="font-body-md text-on-surface-variant mb-4 h-12 overflow-hidden">Hương vị mắm cá linh, cá sặc đậm đà quyện cùng hải sản tươi rói.</p>
-                        <span class="font-headline-md text-primary">85.000đ</span>
-                    </div>
-                </div>
-
-                <!-- Dish 2 -->
-                <div class="bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="h-64 overflow-hidden">
-                        <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('images/lau-mam.jpg');"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-headline-md text-headline-md text-on-surface">Lẩu Mắm cá linh</h3>
-                        </div>
-                        <p class="font-body-md text-on-surface-variant mb-4 h-12 overflow-hidden">Món lẩu đặc trưng mùa nước nổi với đủ loại rau đồng nội.</p>
-                        <span class="font-headline-md text-primary">250.000đ</span>
-                    </div>
-                </div>
-
-                <!-- Dish 3 -->
-                <div class="bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="h-64 overflow-hidden">
-                        <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('images/ca-loc-nuong.jpg');"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-headline-md text-headline-md text-on-surface">Cá Lóc Nướng Trui</h3>
-                        </div>
-                        <p class="font-body-md text-on-surface-variant mb-4 h-12 overflow-hidden">Cá lóc nướng rơm thơm lừng, cuốn bánh tráng cùng mắm me.</p>
-                        <span class="font-headline-md text-primary">165.000đ</span>
-                    </div>
-                </div>
-
-                <!-- Dish 4 -->
-                <div class="bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="h-64 overflow-hidden">
-                        <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500" style="background-image: url('images/goi-ngo-sen.jpg');"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-headline-md text-headline-md text-on-surface">Gỏi Ngó Sen</h3>
-                        </div>
-                        <p class="font-body-md text-on-surface-variant mb-4 h-12 overflow-hidden">Gỏi sen giòn ngọt, tôm thịt đậm đà, khai vị thanh mát.</p>
-                        <span class="font-headline-md text-primary">110.000đ</span>
-                    </div>
-                </div>
+            <!-- Category tabs -->
+            <div id="menu-tabs" class="flex justify-center gap-4 mb-12 flex-wrap">
+                <!-- Rendered by JS from menu.json -->
+            </div>
+            <!-- Menu grid -->
+            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                <!-- Rendered by JS from menu.json -->
             </div>
         </section>
 

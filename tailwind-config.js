@@ -66,11 +66,11 @@ tailwind.config = {
             },
             "fontFamily": {
                 "body-lg": ["Be Vietnam Pro"],
-                "headline-md": ["Noto Serif"],
-                "headline-xl": ["Noto Serif"],
-                "headline-lg": ["Noto Serif"],
+                "headline-md": ["Playfair Display"],
+                "headline-xl": ["Playfair Display"],
+                "headline-lg": ["Playfair Display"],
                 "body-md": ["Be Vietnam Pro"],
-                "headline-lg-mobile": ["Noto Serif"],
+                "headline-lg-mobile": ["Playfair Display"],
                 "caption": ["Be Vietnam Pro"],
                 "label-md": ["Be Vietnam Pro"]
             },

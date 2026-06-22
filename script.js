@@ -116,3 +116,67 @@ document.querySelector('form').addEventListener('submit', function(e) {
         }, 3000);
     }, 1500);
 });
+// ===== Dynamic Menu from menu.json =====
+let menuData = null;
+let activeCategory = 'Tất cả';
+
+async function loadMenu() {
+    try {
+        const res = await fetch('menu.json');
+        menuData = await res.json();
+        renderTabs();
+        renderMenu();
+    } catch (err) {
+        console.error('Failed to load menu:', err);
+        document.getElementById('menu-grid').innerHTML =
+            '<p class="col-span-full text-center text-on-surface-variant">Không thể tải thực đơn.</p>';
+    }
+}
+
+function renderTabs() {
+    const tabsContainer = document.getElementById('menu-tabs');
+    tabsContainer.innerHTML = menuData.categories.map(cat => `
+        <button
+            class="menu-tab px-5 py-2 rounded-sm font-label-md text-body-md border transition-all duration-300 ${cat === activeCategory ? 'bg-primary text-on-primary border-primary shadow-sm' : 'bg-transparent text-on-surface-variant border-outline-variant hover:border-primary hover:text-primary'}"
+            data-category="${cat}"
+        >${cat}</button>
+    `).join('');
+
+    tabsContainer.querySelectorAll('.menu-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            activeCategory = tab.dataset.category;
+            renderTabs();
+            renderMenu();
+        });
+    });
+}
+
+function renderMenu() {
+    const grid = document.getElementById('menu-grid');
+    const filtered = activeCategory === 'Tất cả'
+        ? menuData.menu
+        : menuData.menu.filter(item => item.category === activeCategory);
+
+    if (filtered.length === 0) {
+        grid.innerHTML = '<p class="col-span-full text-center text-on-surface-variant py-12">Chưa có món trong danh mục này.</p>';
+        return;
+    }
+
+    grid.innerHTML = filtered.map(item => `
+        <div class="menu-card bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+            <div class="h-64 overflow-hidden">
+                <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500 bg-cover bg-center" style="background-image: url('${item.image}');"></div>
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2 gap-2">
+                    <h3 class="font-headline-md text-headline-md text-on-surface">${item.name}</h3>
+                    <span class="shrink-0 bg-secondary-container text-on-secondary-container text-caption font-label-md px-2 py-0.5 rounded-sm">${item.category}</span>
+                </div>
+                <p class="font-body-md text-on-surface-variant mb-4 line-clamp-2">${item.description}</p>
+                <span class="font-headline-md text-primary">${item.price}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+loadMenu();
