@@ -54,3 +54,93 @@
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+.toast-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(28, 28, 25, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.toast-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.toast-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    z-index: 9999;
+    background: var(--color-surface, #fdf9f4);
+    border: 1px solid var(--color-outline-variant, #dfc0b8);
+    border-radius: 0.5rem;
+    padding: 2rem 2.5rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(28, 28, 25, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.toast-box.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+.toast-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    background: var(--color-error-container, #ffdad6);
+    color: var(--color-error, #ba1a1a);
+}
+.toast-icon .material-symbols-outlined {
+    font-size: 28px;
+}
+.toast-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--color-on-surface, #1c1c19);
+    margin-bottom: 0.5rem;
+}
+.toast-message {
+    text-align: center;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-on-surface-variant, #58423c);
+    margin-bottom: 1.5rem;
+}
+.toast-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.125rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--color-primary, #9c2f14);
+    color: var(--color-on-primary, #ffffff);
+    box-shadow: 0 3px 0 0 var(--color-on-primary-fixed-variant, #872106);
+}
+.toast-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 0 var(--color-on-primary-fixed-variant, #872106);
+}

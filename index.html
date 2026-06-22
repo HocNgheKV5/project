@@ -132,15 +132,16 @@
                         <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label class="font-label-md text-on-surface-variant">Họ và tên</label>
-                                <input class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" placeholder="Nhập tên của bạn" type="text">
+                                <input id="res-name" class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" placeholder="Nhập tên của bạn" type="text">
                             </div>
                             <div class="space-y-2">
                                 <label class="font-label-md text-on-surface-variant">Số điện thoại</label>
-                                <input class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" placeholder="Nhập số điện thoại" type="tel">
+                                <input id="res-phone" class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" placeholder="Nhập số điện thoại" type="tel">
                             </div>
                             <div class="space-y-2">
                                 <label class="font-label-md text-on-surface-variant">Số khách</label>
-                                <select class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors">
+                                <select id="res-guests" class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors">
+                                    <option>1 người</option>
                                     <option>2 người</option>
                                     <option>4 người</option>
                                     <option>6 người</option>
@@ -149,7 +150,7 @@
                             </div>
                             <div class="space-y-2">
                                 <label class="font-label-md text-on-surface-variant">Ngày &amp; Giờ</label>
-                                <input class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" type="datetime-local">
+                                <input id="res-datetime" class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" type="datetime-local">
                             </div>
                             <div class="md:col-span-2 pt-6">
                                 <button class="w-full bg-primary text-on-primary py-4 rounded-sm font-label-md text-lg shadow-[0_3px_0_0_#872106] active:translate-y-[2px] transition-all" type="submit">
@@ -236,6 +237,17 @@
         </div>
     </footer>
 
+    <!-- Custom Toast -->
+    <div id="toast-overlay" class="toast-overlay"></div>
+    <div id="toast-box" class="toast-box">
+        <div class="toast-icon">
+            <span class="material-symbols-outlined">warning</span>
+        </div>
+        <p id="toast-title" class="toast-title">Thiếu thông tin</p>
+        <p id="toast-message" class="toast-message">Vui lòng điền đầy đủ thông tin đặt bàn.</p>
+        <button id="toast-btn" class="toast-btn" onclick="closeToast()">Đã hiểu</button>
+    </div>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -97,15 +97,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== Form submission micro-interaction =====
+// ===== Custom Toast =====
+function showToast(title, message) {
+    document.getElementById('toast-title').textContent = title;
+    document.getElementById('toast-message').textContent = message;
+    document.getElementById('toast-overlay').classList.add('active');
+    document.getElementById('toast-box').classList.add('active');
+}
+
+function closeToast() {
+    document.getElementById('toast-overlay').classList.remove('active');
+    document.getElementById('toast-box').classList.remove('active');
+}
+
+document.getElementById('toast-overlay').addEventListener('click', closeToast);
+
+
+// ===== Form submission → Excel export =====
 document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
+    const name = document.getElementById('res-name').value.trim();
+    const phone = document.getElementById('res-phone').value.trim();
+    const guests = document.getElementById('res-guests').value;
+    const datetime = document.getElementById('res-datetime').value;
+
+    if (!name || !phone || !datetime) {
+        showToast('Thiếu thông tin', 'Vui lòng điền đầy đủ thông tin đặt bàn.');
+        return;
+    }
+
     const btn = this.querySelector('button[type="submit"]');
     const originalText = btn.innerText;
     btn.innerText = 'Đang xử lý...';
     btn.disabled = true;
 
     setTimeout(() => {
+        const now = new Date();
+        const timestamp = now.toLocaleString('vi-VN');
+        const formattedDT = datetime.replace('T', ' ');
+
+        const data = [
+            ['Họ và tên', 'Số điện thoại', 'Số khách', 'Ngày & Giờ', 'Thời gian đặt'],
+            [name, phone, guests, formattedDT, timestamp]
+        ];
+
+        const ws = XLSX.utils.aoa_to_sheet(data);
+        ws['!cols'] = [
+            { wch: 20 }, { wch: 15 }, { wch: 12 }, { wch: 20 }, { wch: 22 }
+        ];
+
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Đặt bàn');
+        XLSX.writeFile(wb, `DatBan_${name}_${now.getTime()}.xlsx`);
+
         btn.innerText = 'Đặt bàn thành công!';
         btn.style.backgroundColor = '#52652a';
         setTimeout(() => {
@@ -114,7 +158,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
             btn.disabled = false;
             this.reset();
         }, 3000);
-    }, 1500);
+    }, 800);
 });
 // ===== Dynamic Menu from menu.json =====
 let menuData = null;
@@ -153,9 +197,10 @@ function renderTabs() {
 
 function renderMenu() {
     const grid = document.getElementById('menu-grid');
-    const filtered = activeCategory === 'Tất cả'
-        ? menuData.menu
+    let filtered = activeCategory === 'Tất cả'
+        ? [...menuData.menu]
         : menuData.menu.filter(item => item.category === activeCategory);
+    filtered.sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0));
 
     if (filtered.length === 0) {
         grid.innerHTML = '<p class="col-span-full text-center text-on-surface-variant py-12">Chưa có món trong danh mục này.</p>';
@@ -163,16 +208,17 @@ function renderMenu() {
     }
 
     grid.innerHTML = filtered.map(item => `
-        <div class="menu-card bg-surface-container-low border border-surface-container-high rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
-            <div class="h-64 overflow-hidden">
+        <div class="menu-card bg-surface-container-low border border-surface-container-high rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group relative">
+            <div class="h-64 overflow-hidden relative">
                 <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500 bg-cover bg-center" style="background-image: url('${item.image}');"></div>
+                ${item.popular ? '<span class="absolute top-3 left-3 bg-primary text-on-primary text-caption font-label-md px-3 py-1 rounded-full flex items-center gap-1 shadow-md"><span class="material-symbols-outlined text-sm leading-none" style="font-size:14px;">local_fire_department</span>Phổ biến</span>' : ''}
             </div>
             <div class="p-6">
                 <div class="flex justify-between items-start mb-2 gap-2">
                     <h3 class="font-headline-md text-headline-md text-on-surface">${item.name}</h3>
                     <span class="shrink-0 bg-secondary-container text-on-secondary-container text-caption font-label-md px-2 py-0.5 rounded-sm">${item.category}</span>
                 </div>
-                <p class="font-body-md text-on-surface-variant mb-4 line-clamp-2">${item.description}</p>
+                <p class="font-body-md text-on-surface-variant mb-4">${item.description}</p>
                 <span class="font-headline-md text-primary">${item.price}</span>
             </div>
         </div>
