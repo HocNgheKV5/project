@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="light" lang="vi">
+<html class="dark" lang="vi">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="tailwind-config.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="layout.css" rel="stylesheet">
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden bamboo-grain">
@@ -34,7 +34,7 @@
                 </a>
             </div>
             <div class="flex items-center gap-4">
-                <a class="hidden md:inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-sm font-label-md hover:bg-primary-container hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_2px_0_0_#872106] hover:shadow-[0_4px_0_0_#872106] hover:-translate-y-0.5" href="#booking">
+                <a class="hidden md:inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-sm font-label-md hover:bg-primary-container hover:scale-105 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5" href="#booking">
                     Đặt bàn ngay
                 </a>
                 <!-- Mobile hamburger -->
@@ -52,7 +52,7 @@
                 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-lg text-body-lg py-2" href="#menu">Thực đơn</a>
                 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-lg text-body-lg py-2" href="#booking">Đặt bàn</a>
                 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-lg text-body-lg py-2" href="#contact">Liên hệ</a>
-                <a class="mt-2 bg-primary text-on-primary px-8 py-3 rounded-sm font-label-md hover:bg-primary-container active:scale-95 transition-all duration-200 shadow-[0_2px_0_0_#872106]" href="#booking">
+                <a class="mt-2 bg-primary text-on-primary px-8 py-3 rounded-sm font-label-md hover:bg-primary-container active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg" href="#booking">
                     Đặt bàn ngay
                 </a>
             </div>
@@ -75,10 +75,10 @@
                         Khám phá hành trình ẩm thực đậm chất Nam Bộ với những nguyên liệu tươi ngon nhất từ cánh đồng và dòng sông, được chế biến bằng cả tấm lòng của người nghệ nhân.
                     </p>
                     <div class="flex gap-4">
-                        <a class="inline-block bg-primary text-on-primary px-8 py-4 rounded-sm font-label-md text-lg shadow-[0_3px_0_0_#872106] hover:translate-y-[1px] hover:shadow-[0_2px_0_0_#872106] transition-all" href="#booking">
+                        <a class="inline-block bg-primary text-on-primary px-8 py-4 rounded-sm font-label-md text-lg shadow-lg hover:shadow-xl hover:translate-y-[-1px] active:translate-y-[2px] transition-all" href="#booking">
                             Đặt bàn ngay
                         </a>
-                        <a class="inline-block border border-secondary text-secondary px-8 py-4 rounded-sm font-label-md text-lg hover:bg-secondary-container transition-colors" href="#menu">
+                        <a class="inline-block border-2 border-outline text-on-surface px-8 py-4 rounded-sm font-label-md text-lg hover:bg-surface-container-high hover:border-primary hover:text-primary transition-colors" href="#menu">
                             Xem thực đơn
                         </a>
                     </div>
@@ -153,7 +153,7 @@
                                 <input id="res-datetime" class="w-full bg-transparent border-b border-outline focus:border-primary outline-none py-2 transition-colors" type="datetime-local">
                             </div>
                             <div class="md:col-span-2 pt-6">
-                                <button class="w-full bg-primary text-on-primary py-4 rounded-sm font-label-md text-lg shadow-[0_3px_0_0_#872106] active:translate-y-[2px] transition-all" type="submit">
+                                <button class="w-full bg-primary text-on-primary py-4 rounded-sm font-label-md text-lg shadow-lg active:translate-y-[2px] hover:shadow-xl hover:-translate-y-0.5 transition-all" type="submit">
                                     Xác nhận đặt bàn
                                 </button>
                             </div>
@@ -238,6 +238,20 @@
     </footer>
 
     <!-- Custom Toast -->
+    <!-- Menu Item Popup -->
+    <div id="menu-popup-overlay" class="menu-popup-overlay"></div>
+    <div id="menu-popup" class="menu-popup">
+        <button class="menu-popup-close" id="menu-popup-close" aria-label="Đóng">
+            <span class="material-symbols-outlined" style="font-size:20px;">close</span>
+        </button>
+        <img id="menu-popup-img" class="menu-popup-image" src="" alt="">
+        <div class="menu-popup-body">
+            <div id="menu-popup-name" class="menu-popup-name"></div>
+            <span id="menu-popup-category" class="menu-popup-category"></span>
+            <p id="menu-popup-desc" class="menu-popup-desc"></p>
+            <div id="menu-popup-price" class="menu-popup-price"></div>
+        </div>
+    </div>
     <div id="toast-overlay" class="toast-overlay"></div>
     <div id="toast-box" class="toast-box">
         <div class="toast-icon">

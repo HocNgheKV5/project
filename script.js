@@ -168,7 +168,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 3000);
         }, 800);
     });
- });
+});
+
 // ===== Dynamic Menu from menu.json =====
 let menuData = null;
 let activeCategory = 'Tất cả';
@@ -204,7 +205,8 @@ function renderTabs() {
     });
 }
 
-function renderMenu() {
+// ===== Menu Card: image + name only =====
+function renderMenu(animate = true) {
     const grid = document.getElementById('menu-grid');
     let filtered = activeCategory === 'Tất cả'
         ? [...menuData.menu]
@@ -216,22 +218,60 @@ function renderMenu() {
         return;
     }
 
-    grid.innerHTML = filtered.map(item => `
-        <div class="menu-card bg-surface-container-low border border-surface-container-high rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group relative">
-            <div class="h-64 overflow-hidden relative">
-                <div class="w-full h-full transform group-hover:scale-105 transition-transform duration-500 bg-cover bg-center" style="background-image: url('${item.image}');"></div>
-                ${item.popular ? '<span class="absolute top-3 left-3 bg-primary text-on-primary text-caption font-label-md px-3 py-1 rounded-full flex items-center gap-1 shadow-md"><span class="material-symbols-outlined text-sm leading-none" style="font-size:14px;">local_fire_department</span>Phổ biến</span>' : ''}
+    grid.innerHTML = filtered.map((item, index) => `
+        <div class="menu-card bg-surface-container-low border border-surface-container-high rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer relative ${animate ? 'menu-card-enter' : ''}"
+             style="${animate ? `animation-delay: ${index * 60}ms` : ''}"
+             data-index="${menuData.menu.indexOf(item)}"
+             onclick="openMenuPopup(${menuData.menu.indexOf(item)})">
+            <div class="h-56 overflow-hidden relative">
+                <div class="w-full h-full transform group-hover:scale-110 transition-transform duration-700 bg-cover bg-center" style="background-image: url('${item.image}');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                ${item.popular ? '<span class="absolute top-3 left-3 bg-primary text-on-primary text-caption font-label-md px-3 py-1 rounded-full flex items-center gap-1 shadow-md z-[2]"><span class="material-symbols-outlined text-sm leading-none" style="font-size:14px;">local_fire_department</span>Phổ biến</span>' : ''}
             </div>
-            <div class="p-6">
-                <div class="flex justify-between items-start mb-2 gap-2">
-                    <h3 class="font-headline-md text-headline-md text-on-surface">${item.name}</h3>
-                    <span class="shrink-0 bg-secondary-container text-on-secondary-container text-caption font-label-md px-2 py-0.5 rounded-sm">${item.category}</span>
-                </div>
-                <p class="font-body-md text-on-surface-variant mb-4">${item.description}</p>
-                <span class="font-headline-md text-primary">${item.price}</span>
+            <div class="p-5 text-center">
+                <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors duration-300">${item.name}</h3>
+                <span class="mt-2 inline-block text-on-surface-variant font-body-md text-caption">Nhấn để xem chi tiết</span>
             </div>
         </div>
     `).join('');
 }
+
+// ===== Menu Popup =====
+const popupOverlay = document.getElementById('menu-popup-overlay');
+const popup = document.getElementById('menu-popup');
+const popupClose = document.getElementById('menu-popup-close');
+const popupImg = document.getElementById('menu-popup-img');
+const popupName = document.getElementById('menu-popup-name');
+const popupCategory = document.getElementById('menu-popup-category');
+const popupDesc = document.getElementById('menu-popup-desc');
+const popupPrice = document.getElementById('menu-popup-price');
+
+function openMenuPopup(index) {
+    const item = menuData.menu[index];
+    if (!item) return;
+
+    popupImg.src = item.image;
+    popupImg.alt = item.name;
+    popupName.textContent = item.name;
+    popupCategory.textContent = item.category;
+    popupDesc.textContent = item.description;
+    popupPrice.textContent = item.price;
+
+    popupOverlay.classList.add('active');
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMenuPopup() {
+    popupOverlay.classList.remove('active');
+    popup.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+popupClose.addEventListener('click', closeMenuPopup);
+popupOverlay.addEventListener('click', closeMenuPopup);
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenuPopup();
+});
 
 loadMenu();
